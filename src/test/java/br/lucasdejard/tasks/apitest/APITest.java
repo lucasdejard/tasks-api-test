@@ -1,5 +1,6 @@
 package br.lucasdejard.tasks.apitest;
 
+import org.hamcrest.CoreMatchers;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
