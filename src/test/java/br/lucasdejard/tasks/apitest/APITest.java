@@ -35,4 +35,16 @@ public class APITest {
 			.statusCode(201)
 		;
 		}
+	
+	public void	naoDeveAdicionarTarefaComSucesso(){
+		RestAssured.given()
+			.body("{ \"task\": \"Teste via API\", \"dueDate\": \"2020-12-30\"}")
+			.contentType(ContentType.JSON)
+		.when()
+			.post("/todo")
+		.then()
+			.statusCode(400)
+			.body("message", CoreMatchers.is("Due date must not be in past"))
+		;
+		}
 }
